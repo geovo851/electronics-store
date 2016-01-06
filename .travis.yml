@@ -3,7 +3,7 @@ rvm:
 - 2.2.0
 branches:
   only:
-    - master
+  - master
 gemfile:
 - Gemfile
 before_script:
@@ -12,13 +12,10 @@ before_script:
 deploy:
   provider: heroku
   api_key:
-    secure: 
+    secure: qyC0801Hb0AGaY7qGdm/AAoyTaDhZvzKyZslknj1l16B6Tyz0Wtg0OMXAuEhLTFlQiP2iyRz+6kBOlqNe8pTgrldKJISnanBzDofFpQaeccvPhTR2y3N6NUOcg9f64cZsU1EZTlDbjdXQL8GjjEDuLEdQuxQsj9ijP5hynUzCZldMYL5DHEnrp5gT26lga6sITuRLE/bRcSIxP/hinfIXFMiQFdMGLcpV6A7oa+M/39/VyvQJ3cwh9BccISGS8h4YyHXJR8wrrnphvs6h4y5SzALje+nN1Rs0x3Cdpy34XATah6ktgdwhI8SlYsgqxaxvxJoGg6LB8T5U5fDIgG8Xv+W5JHjxaiHjgN1ATiBcg1C8tegdH1KX74D1cUM5fmaiQ+vkNbxbZEEBgYfrdOW9Ei6nxvZm+FKCDIHztMoitC9QmCpTuHTkOfSsNQuYaDr2o5Fud3qQRUeFuRDi4CYQxJYizMkZ1vpCzd/mmtymyIcP3ud+VdyqNB+3uKAUkGhY8a0q6eJuqMiTgG7hGT8mdnsWFqGfycEhd4fe5ZDK0tvUuXQWilJvVT5UXLKj7EKoeXrVlJDZiV9vyKJbdCxnvs0QKCQSkh1B0Nr5rZDjSYgvRYw5wprnY2rod17nxpGRhkT2eCzh+5JkrZoA5Kz6SNBpehYa2sFw8bczI62EdM=
   app: electronics-store
   run:
-    # - "rake db:reset"
-    - "rake db:migrate"
-    # - "rake db:seed"
-    - restart
+  - rake db:migrate
   on:
     branch: master
     rvm: 2.2.0
