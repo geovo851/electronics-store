@@ -1,0 +1,10 @@
+<% categories.each do |c| %>
+  <li><a href="#"><%= c.title %></a>
+
+    <% if c.categories.present? %>
+      <ul>
+        <%= render partial: 'shared/categories', locals: { categories: c.categories } %>
+      </ul>
+    <% end %>
+  </li>
+<% end %>
