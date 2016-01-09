@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109101725) do
+ActiveRecord::Schema.define(version: 20160109213815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carousel_products", force: :cascade do |t|
+    t.string   "photo"
+    t.integer  "product_id"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "carousel_products", ["product_id"], name: "index_carousel_products_on_product_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -34,6 +44,16 @@ ActiveRecord::Schema.define(version: 20160109101725) do
   end
 
   add_index "photos", ["product_id"], name: "index_photos_on_product_id", using: :btree
+
+  create_table "popular_products", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "photo"
+    t.decimal  "promotional_price", precision: 15, scale: 2, default: 0.0
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+  end
+
+  add_index "popular_products", ["product_id"], name: "index_popular_products_on_product_id", using: :btree
 
   create_table "product_specifications", force: :cascade do |t|
     t.integer  "product_id"
@@ -70,8 +90,10 @@ ActiveRecord::Schema.define(version: 20160109101725) do
 
   add_index "properties", ["category_id"], name: "index_properties_on_category_id", using: :btree
 
+  add_foreign_key "carousel_products", "products"
   add_foreign_key "categories", "categories"
   add_foreign_key "photos", "products"
+  add_foreign_key "popular_products", "products"
   add_foreign_key "product_specifications", "products"
   add_foreign_key "product_specifications", "properties"
   add_foreign_key "products", "categories"

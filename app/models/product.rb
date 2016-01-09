@@ -3,4 +3,6 @@ class Product < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   has_many :product_specifications, dependent: :destroy
   has_many :properties, through: :product_specifications
+  has_many :popular_products, dependent: :destroy
+  has_many :carousel_products, dependent: :destroy
 end

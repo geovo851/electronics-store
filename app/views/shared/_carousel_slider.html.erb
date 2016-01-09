@@ -7,18 +7,12 @@
     <div class="ocarousel_slider">  
       <div class="ocarousel example_photos" data-ocarousel-perscroll="3">
         <div class="ocarousel_window">
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img1.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img2.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img3.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img4.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img5.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img6.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img1.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img2.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img3.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img4.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img5.jpg' %><p>Nuncvitae</p></a>
-          <a href="#" title="img1"> <%= image_tag 'latest-product-img6.jpg' %><p>Nuncvitae</p></a>
+          <% @carousel_products.each do |carousel_product| %>
+            <%= link_to store_product_path(carousel_product.product_id) do %>
+              <%= image_tag carousel_product.photo %>
+              <p><%= carousel_product.description %></p>
+            <% end %>
+          <% end %>
         </div>
         <span>
           <a href="#" data-ocarousel-link="left" style="float: left;" class="prev"> </a>

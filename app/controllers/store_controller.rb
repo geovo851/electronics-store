@@ -3,6 +3,7 @@ class StoreController < ApplicationController
 
   def index
     @products = Product.first(12)
+    @carousel_products = CarouselProduct.first(12)
   end
 
   def search_products
@@ -16,6 +17,12 @@ class StoreController < ApplicationController
 
   def product
     @product = Product.includes(:product_specifications, :properties).find(params[:id])
+    @popular_products = PopularProduct.includes(:product).first(3)
+    @carousel_products = CarouselProduct.first(12)
+  end
+
+  def contact_us
+    
   end
 
   private

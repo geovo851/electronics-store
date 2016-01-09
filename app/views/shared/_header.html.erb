@@ -25,7 +25,7 @@
         </li>
         <%= render partial: 'shared/categories', locals: { categories: @categories } %>
         <li>
-          <a href="contact.html">Contact Us</a>
+          <%= link_to 'Contact Us', store_contact_us_path %>
         </li>
       </ul>
       <span class="left-ribbon"> </span>

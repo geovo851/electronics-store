@@ -246,3 +246,20 @@ categories.each do |c|
 
   n += 0.04
 end
+
+products = Product.first(3)
+n = 2
+products.each do |product|
+  product.popular_products.create(photo: "product-img#{n}.jpg",
+                                  promotional_price: product.price - 45.36)
+  n += 1
+end
+
+descriptions = ['Bicycle', 'Vacuum cleaner', 'Printer', 'Table', 'Drill', 'Baby carriage']
+products = Product.last(12)
+n = 1
+products.each do |product|
+  product.carousel_products.create(photo: "latest-product-img#{n}.jpg",
+                                  description: descriptions[n-1])
+  n == 6 ? n = 1 : n += 1
+end
