@@ -15,8 +15,12 @@
           <%= render 'banners' %>
         </div>
         <div class="content-bottom-right">
-          <%= render partial: 'products', locals: { products: @products } %>
-          <%= render 'articles' %>
+          <div id="products">
+            <%= render partial: 'products', locals: { products: @products } %>
+          </div>
+          <div id="paginator", class="paginate-centre">
+            <%= paginate @products, :remote => true %>
+          </div>
         </div>
         <div class="clear"></div>
       </div>

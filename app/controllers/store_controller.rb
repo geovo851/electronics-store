@@ -7,9 +7,9 @@ class StoreController < ApplicationController
 
   def search_products
     if params[:root_category]
-      @products = Product.where(category_id: all_category(params[:id]))
+      @products = Product.where(category_id: all_category(params[:id])).page(params[:page]).per(12)
     else
-      @products = Product.where(category_id: params[:id])
+      @products = Product.where(category_id: params[:id]).page(params[:page]).per(12)
     end
     @category = Category.find(params[:id])
   end

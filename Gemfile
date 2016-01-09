@@ -50,4 +50,4 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
-gem 'kaminari'
+gem 'activeadmin', '1.0.0.pre1'
