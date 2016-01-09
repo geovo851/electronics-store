@@ -16,7 +16,7 @@ deploy:
   app: electronics-store
   run:
     # - "rake db:migrate"
-    - "rake db:seed"
+    # - "rake db:seed"
   on:
     branch: master
     rvm: 2.2.0

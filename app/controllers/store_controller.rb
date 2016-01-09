@@ -2,7 +2,7 @@ class StoreController < ApplicationController
   before_action :set_categories
 
   def index
-    @products = Product.all
+    @products = Product.first(12)
   end
 
   def search_products
