@@ -1,17 +1,12 @@
-<% provide(:title, 'Home') %>
-<% provide(:slider, 'slider') %>
+<% provide(:title, @category.title) %>
 
 <div class="main">
   <div class="content">
-
-    <%= render 'shared/carousel_slider' %>
-
     <div class="content_bottom">
       <div class="wrap">
         <div class="content-bottom-left">
           <%= render partial: 'all_categories',
                      locals: { root_categoreis: @categories } %>
-
           <div class="buters-guide">
             <h3>Buyers Guide</h3>
             <p><span>We want you to be happy with your purchase.</span></p> 

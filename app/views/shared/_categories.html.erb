@@ -1,10 +1,13 @@
 <% categories.each do |c| %>
-  <li><a href="#"><%= c.title %></a>
+  <li>
 
     <% if c.categories.present? %>
+      <%= link_to c.title, '#' %>
       <ul>
         <%= render partial: 'shared/categories', locals: { categories: c.categories } %>
       </ul>
+    <% else %>
+      <%= link_to c.title, store_search_products_path(c.id) %>
     <% end %>
   </li>
 <% end %>

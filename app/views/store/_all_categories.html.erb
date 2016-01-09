@@ -1,0 +1,9 @@
+<div class="categories">
+  <ul>
+    <h3>Browse All Categories</h3>
+
+    <% root_categoreis.each do |c| %>
+      <li><%= link_to c.title, store_search_products_path(c.id, root_category: true) %></li>
+    <% end %>
+  </ul>
+</div>

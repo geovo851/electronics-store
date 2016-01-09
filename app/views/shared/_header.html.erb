@@ -21,7 +21,7 @@
 
       <ul class="nav">
         <li>
-          <a href="index.html">Home</a>
+          <%= link_to 'Home', root_path %>
         </li>
         <%= render partial: 'shared/categories', locals: { categories: @categories } %>
         <li>
@@ -32,16 +32,18 @@
       <span class="right-ribbon"> </span>
     </div>
 
-    <div class="header_bottom">
-      <div class="slider-text">
-        <h2>Lorem Ipsum Placerat <br/>Elementum Quistue Tunulla Maris</h2>
-        <p>Vivamus vitae augue at quam frigilla tristique sit amet<br/> acin ante sikumpre tisdin.</p>
-        <a href="#">Sitamet Tortorions</a>
+    <% if yield(:slider) == 'slider' %> 
+      <div class="header_bottom">
+        <div class="slider-text">
+          <h2>Lorem Ipsum Placerat <br/>Elementum Quistue Tunulla Maris</h2>
+          <p>Vivamus vitae augue at quam frigilla tristique sit amet<br/> acin ante sikumpre tisdin.</p>
+          <a href="#">Sitamet Tortorions</a>
+        </div>
+        <div class="slider-img">
+          <%= image_tag 'slider-img.png' %>
+        </div>
+       <div class="clear"></div>
       </div>
-      <div class="slider-img">
-        <%= image_tag 'slider-img.png' %>
-      </div>
-     <div class="clear"></div>
-    </div>
+    <% end %>
   </div>
 </div>
