@@ -1,9 +1,12 @@
 class StoreController < ApplicationController
+  include CurrentCart
+  before_action :set_cart
   before_action :set_categories
 
   def index
     @products = Product.first(12)
     @carousel_products = CarouselProduct.first(12)
+    @title_products = 'Popular Products'
   end
 
   def search_products
@@ -13,16 +16,32 @@ class StoreController < ApplicationController
       @products = Product.where(category_id: params[:id]).page(params[:page]).per(12)
     end
     @category = Category.find(params[:id])
+    @title_products = @category.title
   end
 
   def product
     @product = Product.includes(:product_specifications, :properties).find(params[:id])
+    @products_order = ProductsOrder.new
     @popular_products = PopularProduct.includes(:product).first(3)
     @carousel_products = CarouselProduct.first(12)
   end
 
   def contact_us
-    
+    @message = Message.new
+  end
+
+  def search
+    @products = Product.search(params[:search_text], params[:page])
+    @title_products = 'Results found:'
+  end
+
+  def terms_of_use
+  end
+
+  def privacy_policy
+  end
+
+  def cart
   end
 
   private

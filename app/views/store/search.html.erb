@@ -1,0 +1,33 @@
+<% provide(:title, 'Search') %>
+
+<div class="main">
+  <div class="content">
+    <div class="content_bottom">
+      <div class="wrap">
+        <div class="content-bottom-left">
+          <%= render partial: 'all_categories',
+                     locals: { root_categoreis: @categories } %>
+          <div class="buters-guide">
+            <h3>Buyers Guide</h3>
+            <p><span>We want you to be happy with your purchase.</span></p> 
+            <p>So we're committed to giving you all the tools to make the right decision with minimum fuss. </p>
+          </div>
+          <%= render 'banners' %>
+        </div>
+        <div class="content-bottom-right">
+          <% if @products.empty? %>
+            <div class="not-found">Products not found</div>
+          <% else %>
+            <div id="products">
+              <%= render partial: 'products', locals: { products: @products } %>
+            </div>
+            <div id="paginator", class="paginate-centre">
+              <%= paginate @products, :remote => true %>
+            </div>
+          <% end %>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>

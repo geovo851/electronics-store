@@ -1,0 +1,56 @@
+<% provide(:title, "Order") %>
+
+<div class="main">
+  <div class="content">
+
+    <div class="content_bottom">
+      <div class="wrap">
+        <div class="content-bottom-left">
+          <%= render partial: 'store/all_categories',
+                     locals: { root_categoreis: @categories } %>
+
+          <div class="buters-guide">
+            <h3>Buyers Guide</h3>
+            <p><span>We want you to be happy with your purchase.</span></p> 
+            <p>So we're committed to giving you all the tools to make the right decision with minimum fuss. </p>
+          </div>
+          <%= render 'store/banners' %>
+        </div>
+        <div class="content-bottom-right">
+          <h3>Order</h3>
+          <%= form_for @cart, url: delivery_path(@cart) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <div>
+              <%= f.label :delivary_adress %>
+              <div>
+                <%= f.text_area :delivary_adress, cols: 45, rows: 5 %>
+              </div>
+            </div>
+
+            <div>
+              <%= f.label :phone_number %>
+              <div>
+                <%= f.text_field :phone_number, size: 15 %>
+              </div>
+            </div>
+
+            <div>
+              <%= f.label :payment %>
+              <div>
+                <%= f.collection_select(:payment_id, @payments, 
+                            :id, :type_of_payment, {:prompt => 'Please select payment'}) %>
+              </div>
+            </div>
+
+            <div>
+                <%= f.submit 'Buy', class: "btn_delivery"%>
+                <%= link_to 'Сancel', root_path, class: "btn_cancel" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>

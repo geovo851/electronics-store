@@ -1,3 +1,11 @@
+payments = Payment.create([
+  {type_of_payment: 'cash payment'}
+]) if Payment.count == 0
+
+orders = Order.all
+orders.each do |o|
+  o.destroy
+end
 
 products = Product.all
 products.each do |p|
@@ -192,12 +200,12 @@ categories.each do |c|
   add_photo product.photos
   add_specifications product
 
-  product = Product.create(name: "#{c.title} Whirlpool LTE963D 2.2 CuFt", price: n * 844.96, photo: 'product-img3.jpg',
+  product = Product.create(name: "#{c.title} Whirlpool LTE96893D 2.2 CuFt", price: n * 844.96, photo: 'product-img3.jpg',
     category_id: c.id, description: product_description, model: 'LTE963D', weight: 45.96, units_in_stock: 99)
   add_photo product.photos
   add_specifications product
 
-  product = Product.create(name: "#{c.title} Whirlpool LTE793F 3.0 CuFt", price: n * 812.42, photo: 'product-img4.jpg',
+  product = Product.create(name: "#{c.title} Whirlpool LTE79893F 3.0 CuFt", price: n * 812.42, photo: 'product-img4.jpg',
     category_id: c.id, description: product_description, model: 'LTE793F', weight: 69.12, units_in_stock: 10)
   add_photo product.photos
   add_specifications product
@@ -213,18 +221,18 @@ categories.each do |c|
   add_photo product.photos
   add_specifications product
 
-  product = Product.create(name: "#{c.title} Whirlpool LTE793F 3.0 CuFt", price: n * 600.42, photo: 'product-img4.jpg',
+  product = Product.create(name: "#{c.title} Whirlpool LTE7893F 3.0 CuFt", price: n * 600.42, photo: 'product-img4.jpg',
     category_id: c.id, description: product_description, model: 'LTE793F', weight: 69.12, units_in_stock: 10)
   add_photo product.photos
   add_specifications product
 
-  product = Product.create(name: "#{c.title} Whirlpool LTE963D 2.2 CuFt", price: n * 960.96, photo: 'product-img3.jpg',
+  product = Product.create(name: "#{c.title} Whirlpool LTE9863D 2.2 CuFt", price: n * 960.96, photo: 'product-img3.jpg',
     category_id: c.id, description: product_description, model: 'LTE963D', weight: 45.96, units_in_stock: 99)
   add_photo product.photos
   add_specifications product
 
 
-  product = Product.create(name: "#{c.title} Whirlpool LTE793F 3.0 CuFt", price: n * 700.42, photo: 'product-img4.jpg',
+  product = Product.create(name: "#{c.title} Whirlpool LTE7983F 3.0 CuFt", price: n * 700.42, photo: 'product-img4.jpg',
     category_id: c.id, description: product_description, model: 'LTE793F', weight: 69.12, units_in_stock: 10)
   add_photo product.photos
   add_specifications product
@@ -234,7 +242,7 @@ categories.each do |c|
   add_photo product.photos
   add_specifications product
 
-  product = Product.create(name: "#{c.title} Whirlpool LTE963D 2.2 CuFt", price: n * 150.96, photo: 'product-img3.jpg',
+  product = Product.create(name: "#{c.title} Whirlpool LTE9863D 2.2 CuFt", price: n * 150.96, photo: 'product-img3.jpg',
     category_id: c.id, description: product_description, model: 'LTE963D', weight: 45.96, units_in_stock: 99)
   add_photo product.photos
   add_specifications product

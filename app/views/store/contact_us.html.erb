@@ -10,21 +10,7 @@
       </div>
       <div class="contact-form">
         <h3>Contact Us</h3>
-        <form method="post" action="contact-post.html">
-          <div>
-            <input name="userName" type="text" class="textbox textbox1" value="Name..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name...';}" >
-            <input name="userEmail" type="text" class="textbox" value="Email..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email...';}">
-            <input name="usersubject" type="text" class="textbox" value="Subject..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject...';}">
-            <div class="clear"></div>
-          </div>
-          <div>
-            <span><textarea name="userMsg" value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message </textarea></span>
-          </div>
-          <div>
-            <input type="submit" value="Submit"  class="mybutton">
-            <div class="clear"></div>
-          </div>
-        </form>
+        <%= render partial: 'messages/form', locals: { message: @message } %>
       </div>
     </div>
   </div>

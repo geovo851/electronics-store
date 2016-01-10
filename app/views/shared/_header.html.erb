@@ -2,14 +2,15 @@
   <div class="wrap">
     <div class="header_top">
       <div class="logo">
-        <a href="index.html"><img src="images/logo.png" alt="" /></a>
+        <%= link_to(image_tag('logo.png'), root_path) %>
       </div>
       <div class="header_top_right">
         <div class="search_box">
           <span>Search</span>
-          <form>
-            <input type="text" value=""><input type="submit" value="">
-          </form>
+          <%= form_tag store_search_path do %>
+            <%= text_field_tag :search_text, params[:search_text] %>
+            <%= submit_tag '' %>
+          <% end %>
           <div class="clear"></div>
         </div>
       </div>
@@ -27,6 +28,9 @@
         <li>
           <%= link_to 'Contact Us', store_contact_us_path %>
         </li>
+        <li>
+          <%= link_to 'Cart', store_cart_path(@cart) %>
+        </li>
       </ul>
       <span class="left-ribbon"> </span>
       <span class="right-ribbon"> </span>
@@ -35,9 +39,9 @@
     <% if yield(:slider) == 'slider' %> 
       <div class="header_bottom">
         <div class="slider-text">
-          <h2>Lorem Ipsum Placerat <br/>Elementum Quistue Tunulla Maris</h2>
-          <p>Vivamus vitae augue at quam frigilla tristique sit amet<br/> acin ante sikumpre tisdin.</p>
-          <a href="#">Sitamet Tortorions</a>
+          <h2>Electronics store <br/> sit amet, consectetur adipisicing eli</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit<br/> sed do eiusmod tempor incididunt</p>
+          <a href="https://github.com/geovo851">Ruby on Rails Developer Georgy</a>
         </div>
         <div class="slider-img">
           <%= image_tag 'slider-img.png' %>
