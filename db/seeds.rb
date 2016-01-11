@@ -163,8 +163,6 @@ def add_specifications product
     { property: product.category.properties.find_by(title: 'Body type'), value: 'Metal' },
     { property: product.category.properties.find_by(title: 'Spin Speed (rpm)'), value: '0/400/800/1000/1200' },
     { property: product.category.properties.find_by(title: 'Machine weight (kg)'), value: '75' },
-    { property: product.category.properties.find_by(title: 'Wash System'), value: 'Tumble wash' },
-    { property: product.category.properties.find_by(title: 'Door diameter (mm)'), value: '300' },
     { property: product.category.properties.find_by(title: 'Dimensions (w*d*h) without packing'), value: '595x595x850' },
     { property: product.category.properties.find_by(title: 'Power Supply'), value: ' 230V, 50Hz, 16Amps' },
     { property: product.category.properties.find_by(title: 'Motor (Watts)'), value: '440 for Wash/490 for Spin' },
@@ -180,15 +178,12 @@ categories.each do |c|
     { title: 'Body type' },
     { title: 'Spin Speed (rpm)' },
     { title: 'Machine weight (kg)' },
-    { title: 'Wash System' },
-    { title: 'Door diameter (mm)' },
     { title: 'Dimensions (w*d*h) without packing' },
     { title: 'Power Supply' },
     { title: 'Motor (Watts)' },
     { title: 'Drum basket' },
     { title: 'Adjustable Feet' }
     ])
-
 
   product = Product.create(name: "#{c.title} Whirlpool LTE5243D 3.4 CuFt", price: n * 840.50, photo: 'product-img1.jpg', 
     category_id: c.id, description: product_description, model: 'LTE5243D', weight: 80.95, units_in_stock: 25)
